@@ -1,7 +1,7 @@
 Summary:	Generic spell checking library
 Name:		enchant
 Version:	1.6.0
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/1.6.0/%{name}-%{version}.tar.gz
@@ -60,8 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# useless - modules loaded through libgmodule
-rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/{,enchant/}*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
